@@ -16,15 +16,28 @@ This project involves an extensive examination of Human Resources data collected
 **Data Visualization:**
 - **Power BI:** The analysis results were imported and presented in a dynamic and interactive dashboard using Power BI, displaying primary and secondary metrics with robustness and rigour.
 
-## Key Questions and Insights
+## Key Questions and Insight Summary
 
-The project aimed to answer several critical HR questions:
+The project employed a series of SQL queries to answer critical HR questions, yielding insights into employee demographics, job distribution, tenure, and turnover rates, among others. These questions guided the analysis:
 
-1. **Gender Breakdown of Employees:**
-   - The dashboard illustrates a nearly equal gender distribution within the company, with a slight majority of male employees. This reflects the organization's diverse workforce but also highlights the opportunity for further gender balance initiatives.
 
-2. **Race/Ethnicity Breakdown:**
-   - A significant diversity in race and ethnicity is noted, with the majority being White, followed by individuals identifying with two or more races. This suggests a multicultural workforce, though efforts to increase representation from underrepresented groups could be beneficial.
+    What is the gender breakdown of employees in the company?
+    What is the race/ethnicity breakdown of employees in the company?
+    What is the age distribution of employees in the company?
+    How many employees work at headquarters versus remote locations?
+    What is the average length of employment for employees who have been terminated?
+    How does the gender distribution vary across departments and job titles?
+    What is the distribution of job titles across the company?
+    Which department has the highest turnover rate?
+    What is the distribution of employees across locations by state?
+    How has the company's employee count changed over time based on hire and term dates?
+    What is the tenure distribution for each department?
+
+1. **What is the gender breakdown of employees in the company?:**
+   - The dashboard indicates that the company has a relatively even distribution of employees across genders, with **male** employees forming the majority, followed by **female** employees, and employees with **non-conforming** gender being the smallest group. This suggests that the company has a diverse workforce, but also indicates that there is room for improvement in terms of gender balance.
+
+2. **What is the race/ethnicity breakdown of employees in the company?:**
+   - A significant diversity in race and ethnicity is noted, with the majority being **White**, followed by individuals identifying with **two or more** races, then **black or black Americans** and Native **Hawaiian or Other Pacific Islander**. This suggests a multicultural workforce, though efforts to increase representation from underrepresented groups could be beneficial.
 
 3. **Age Distribution:**
    - The majority of employees fall within the 50+ age group, followed by those in the 41-50 and 31-40 age brackets. This indicates a mature workforce with extensive experience and knowledge, potentially pointing to the need for succession planning and attracting younger talent.
