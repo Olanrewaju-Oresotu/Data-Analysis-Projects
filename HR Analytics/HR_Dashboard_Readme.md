@@ -1,9 +1,9 @@
 
-# Enhanced HR Performance and Employee Distribution Dashboard Project
+# Enhanced HR Performance and Employee Distribution Analysis Dashboard 
 
 ## Project Overview
 
-This project represents a comprehensive analysis of Human Resources data spanning from 2000 to 2020, using over 22,000 data rows to understand the dynamics of a large-scale organization. The endeavor starts from data preparation in SQL Server, transitions through data cleaning and analysis in MySQL Workbench, and culminates in advanced data visualization in Power BI. This multifaceted approach allows for a deep dive into the HR metrics that shape the strategic management decisions of the organization.
+This project involves an extensive examination of Human Resources data collected from the year 2000 to 2020. The data includes over 22,000 rows, which will provide insights into the operations of a large-scale organization. The project begins by importing data, followed by data preparation, cleaning, transformation, and analysis using SQL Server. Finally, the project concludes with advanced data visualization using Power BI. This multifaceted approach will enable a thorough exploration of various HR metrics that can have a significant impact on the strategic management decisions of the organization.
 
 ## Data Utilized
 
@@ -11,11 +11,10 @@ This project represents a comprehensive analysis of Human Resources data spannin
 - The project leverages a dataset titled "HR Data," containing over 22,000 rows of detailed employee records covering a period from 2000 to 2020.
 
 **Data Preparation and Analysis:**
-- **SQL Server and MySQL Workbench:** These platforms were used for data preparation, cleaning, and transformation, including tasks such as renaming columns, converting data types, and calculating new metrics like employee age and tenure.
-- **Key Operations:** Involved data cleaning (e.g., converting term dates and calculating ages), deriving new metrics for analysis, and executing structured queries to uncover insights into KPIs and workforce dynamics.
+- **SQL Server:** This platform was utilized to import, prepare, clean, transform, and analyze data by writing relevant queries. The main tasks involved creating and querying the HR database, importing data from CSV format to table in SQL server, performing data preparation and cleaning operations such as renaming columns, checking for duplicates, converting birthdate and termination date data types, transformation by adding calculated fields for new metrics for analysis such as employee age, age group and tenure, and executing relevant queries to uncover insights into KPIs and workforce measures. Each result of the queries was saved in a CSV file format for visualization with Power BI.
 
 **Data Visualization:**
-- **Power BI:** The insights derived from the analysis were visualized using Power BI, providing a dynamic and interactive dashboard that showcases primary and secondary metrics with a high degree of robustness and rigor.
+- **Power BI:** The analysis results were imported and presented in a dynamic and interactive dashboard using Power BI, displaying primary and secondary metrics with robustness and rigour.
 
 ## Key Questions and Insights
 
