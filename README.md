@@ -18,8 +18,8 @@ Welcome to my Business Analysis projects repository! In this repository, you wil
 
 ## Project 2: Enhanced HR Performance and Employee Distribution Analysis
 
-- **Tools Used:** Excel, Power BI
-- **Description:** In this project, I analyzed sales data from a bike shop to identify trends, top-selling products, and sales patterns. The insights obtained from this analysis were used to make data-driven decisions for optimizing sales strategies.
+- **Tools Used:** SQL Server, Power BI
+- **Description:** For this project, I worked on HR data received from a 3rd party source. I wrote SQL Server queries to prepare, clean, transform and analyze the data to derive key insights regarding HR metrics. The processed data was then visualized in Power BI to create a comprehensive HR Performance and Employee Distribution Report Dashboard. The insights obtained from this analysis were used to make data-driven recommendations for optimizing HR strategies.
 
 ## Project 3: Bike Sales Data Analysis
 
