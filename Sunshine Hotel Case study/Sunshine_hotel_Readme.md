@@ -101,6 +101,8 @@ The dashboard provides a visual representation of key findings from the data:
 8. **Deposit Preferences**: Reservations are more frequently completed without a deposit than non-refundable or refundable deposits.
 9. **Repeated Guests**: Only 3% of the guests are repeated, suggesting room for improvement in customer retention.
 
+Please refer to the Excel document to access the full functionality of the dashboard.
+
 ## Recommendations and Conclusions
 
 - **Optimization of Operations**: To better cater to the needs during peak times and develop strategies for off-peak seasons.
