@@ -33,6 +33,165 @@ The project employed a series of SQL queries to answer critical HR questions, yi
     How has the company's employee count changed over time based on hire and term dates?
     What is the tenure distribution for each department?
 
+
+**Answers to the Key Questions**
+
+
+# HR Database Analysis
+
+This document outlines the SQL queries used for setting up, cleaning, and analyzing an HR database. The database, named `HR`, contains employee data that is subjected to various data cleaning techniques before analysis. The analysis covers several Key Performance Indicators (KPIs) and demographic insights.
+
+## Setup
+
+### Creating Database
+
+```sql
+CREATE DATABASE HR;
+GO
+USE HR;
+```
+
+## Data Preparation
+
+### Viewing Data Sample
+
+To verify the data importation:
+
+```sql
+-- Import Data Table (for checking)
+SELECT TOP 100 *
+FROM hr_data;
+```
+
+### Data Cleaning
+
+1. Rename Columns:
+
+```sql
+SP_RENAME 'hr_data.id', 'emp_id', 'column';
+```
+
+2. Convert `termdate` into DateTime Format:
+
+```sql
+UPDATE hr_data
+SET termdate = FORMAT(CONVERT(DATETIME, LEFT(termdate, 19), 120), 'yyyy-mm-dd');
+```
+
+3. Add and Populate `new_termdate` Column:
+
+```sql
+ALTER TABLE hr_data
+ADD new_termdate DATE;
+
+UPDATE hr_data
+SET termdate = TRY_CONVERT(DATETIME, termdate)
+WHERE termdate IS NOT NULL AND ISDATE(termdate) = 0;
+
+UPDATE hr_data
+SET new_termdate = CASE 
+                    WHEN termdate IS NOT NULL THEN CAST(termdate AS DATETIME)
+                    ELSE NULL
+                  END;
+```
+
+4. Create and Calculate `age` Column:
+
+```sql
+ALTER TABLE hr_data
+ADD age INT;
+
+UPDATE hr_data
+SET age = DATEDIFF(YEAR, birthdate, GETDATE());
+```
+
+## Analysis
+
+### Key Performance Indicators (KPIs)
+
+1. Terminated Employees:
+
+```sql
+SELECT COUNT(*) AS terminated_employees
+FROM hr_data
+WHERE new_termdate IS NOT NULL AND new_termdate <= GETDATE();
+```
+
+2. Working Employees:
+
+```sql
+SELECT COUNT(*) AS Working_Employees
+FROM hr_data
+WHERE new_termdate IS NULL;
+```
+
+### Demographic Insights
+
+1. Age Distribution:
+
+```sql
+SELECT MIN(age) AS Youngest, MAX(age) AS Oldest
+FROM hr_data
+WHERE new_termdate IS NOT NULL;
+```
+
+2. Gender Breakdown:
+
+```sql
+SELECT gender, COUNT(emp_id) AS gender_count
+FROM hr_data
+WHERE new_termdate IS NULL
+GROUP BY gender
+ORDER BY gender_count DESC;
+```
+
+### Workforce Composition
+
+1. Race Distribution:
+
+```sql
+SELECT race, COUNT(emp_id) AS race_count
+FROM hr_data
+WHERE new_termdate IS NULL
+GROUP BY race
+ORDER BY race_count DESC;
+```
+
+2. Employee Distribution in Departments:
+
+```sql
+SELECT department, COUNT(emp_id) AS Total_Emp
+FROM hr_data
+GROUP BY department
+ORDER BY Total_Emp DESC;
+```
+
+### Employment Trends
+
+1. Average Length of Employment:
+
+```sql
+SELECT AVG(DATEDIFF(YEAR, hire_date, new_termdate)) AS Tenure
+FROM hr_data
+WHERE new_termdate IS NOT NULL AND new_termdate <= GETDATE();
+```
+
+### Departmental Analysis
+
+1. Turnover/Attrition Rate by Department:
+
+```sql
+SELECT department, COUNT(emp_id) AS Total_count,
+       SUM(CASE WHEN new_termdate IS NOT NULL AND new_termdate <= GETDATE() THEN 1 ELSE 0 END) AS Terminated_count,
+       ROUND((CAST(SUM(CASE WHEN new_termdate IS NOT NULL AND new_termdate <= GETDATE() THEN 1 ELSE 0 END) AS FLOAT) / COUNT(emp_id)) * 100, 2) AS Attrition_rate
+FROM hr_data
+GROUP BY department
+ORDER BY Attrition_rate DESC;
+```
+
+This README provides a structured approach to navigating through the SQL queries required for a comprehensive analysis of the HR database. Each section is crafted to facilitate understanding and execution of tasks ranging from initial setup to deep dives into the workforce's demographic and employment trends.
+
+
 1. **What is the gender breakdown of employees in the company?:**
    - The dashboard indicates that the company has a relatively even distribution of employees across genders, with **male** employees forming the majority, followed by **female** employees, and employees with **non-conforming** gender being the smallest group. This suggests that the company has a diverse workforce, but also indicates that there is room for improvement in terms of gender balance.
 
