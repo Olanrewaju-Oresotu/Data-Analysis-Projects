@@ -1,4 +1,4 @@
-# Business-Analysis-Projects
+# Data-Analysis-Projects
 Welcome to my Business Analysis projects repository! In this repository, you will find a collection of projects where I have utilized various tools and technologies, including Excel, R, Python, Power BI, SQL, and Tableau, to conduct business analysis and derive valuable insights.
 
 ## Table of Contents
